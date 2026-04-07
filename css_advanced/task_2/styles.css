@@ -1,204 +1,151 @@
 :root {
-    --container-width: 800px;
+    --container-width: 1000px; /* Slightly wider for better spacing */
+    --purple: #C271FF;
 }
 
-
-
-@font-face {
-    font-family: SourceSansPro;
-    src: url(../assets/source-sans-pro_bold.otf);
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: SourceSansPro;
-    src: url(../assets/source-sans-pro_light.otf);
-    font-weight: 300;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: SourceSansPro;
-    src: url(../assets/source-sans-pro_italic.otf);
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: SourceSansPro;
-    src: url(../assets/source-sans-pro_regular.otf);
-    font-weight: 500;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: SpinCycleOT;
-    src: url(../assets/spin-cycle-ot.otf);
-    font-display: swap;
-}
-
-/* ----- GENERAL part----- */
-
+/* ----- GENERAL ----- */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-    width: 100%;
-    height: 100%;
-}
-
 body {
+    font-family: 'SourceSansPro', sans-serif;
     background-color: white;
-    font-family: SourceSansPro;
     color: white;
-    text-align: center;
 }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-}
-
-/* ----- HEADER part----- */
-
+/* ----- HEADER (Transparent Nav) ----- */
 header {
-    width: var(--container-width);
+    width: 100%;
+    max-width: var(--container-width);
     margin: 0 auto;
-    height: 35px;
+    height: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Logo left, Nav right */
     align-items: center;
     position: absolute;
+    top: 0;
     left: 0;
     right: 0;
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
     z-index: 100;
 }
 
-header div {
-    width: 234px;
-    height: 15px;
+.logo {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
-header a {
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
     font-size: 12px;
+    font-weight: bold; /* Requirement: Bold white text */
     text-decoration: none;
-}
-
-/* ----- MAIN part----- */
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-a {
-    font-family: SourceSansPro;
     color: white;
-    text-align: center;
+    text-transform: uppercase;
 }
 
-section {
-    width: 100%;
-}
-
-.hero .title h1 {
-    font-size: 120px;
-}
-
-.title p {
-    width: 100%;
-    max-width: 250px;
-    text-align: justify;
-    text-justify: inter-word;
-    margin-bottom: 25px;;
-}
-
-.title p::after {
-    content: "";
-    display: inline-block;
-    width: 100%;
-}
-
+/* ----- HERO SECTION ----- */
 section.hero {
-    background-image: url("../assets/background.png");
-    background-size: 100% auto;
+    /* Requirement: Dark background with radial gradient overlay */
+    background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%), 
+                url("../assets/background.png");
+    background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
     min-height: 100vh;
-    padding: 75px;
-}
-
-section .title {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 150px;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
-button {
-    background-color: #C271FF;
+.hero h1 {
+    font-size: 120px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Requirement: 3 keywords in a horizontal row */
+.keywords {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* Requirement: Purple rounded button centered */
+.btn-register {
+    background-color: var(--purple);
     border-radius: 999px;
-    padding: 15px 25px;
+    padding: 18px 35px;
     border: none;
     color: white;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    text-transform: uppercase;
 }
 
-section .pros {
+/* ----- PROS SECTION ----- */
+section.pros {
+    padding: 80px 0;
+    color: black; /* Assuming text is visible on white background below hero */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 75px;
-    margin-top: 150px;
 }
 
-section .pros h2 {
-	font-family: SourceSansPro;
-    font-weight: 300;
+.pros h2 {
     font-size: 32px;
-}
-
-.purple-word {
-    font-weight: 600;
-    color: #C271FF;
-}
-
-section .people p {
-    font-family: SourceSansPro;
     font-weight: 300;
+    margin-bottom: 60px;
 }
 
-section .people {
+/* Requirement: "Learn" in purple */
+.purple-word {
+    color: var(--purple);
+    font-weight: 600;
+}
+
+/* Requirement: 4 circular profile images horizontally */
+.people {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 125px;
+    justify-content: center;
+    gap: 50px;
     width: 100%;
+    max-width: var(--container-width);
 }
 
-section .people div {
+.person-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-    width: 150px;
+    width: 200px;
 }
 
 .round-image {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.person-card b {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.person-card i {
+    font-style: italic;
+    font-weight: 300;
 }
