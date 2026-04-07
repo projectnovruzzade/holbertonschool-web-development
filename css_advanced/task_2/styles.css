@@ -1,160 +1,198 @@
-/* ----- VARIABLES & FONTS ----- */
-:root {
-    --container-width: 1000px;
-    --purple: #C271FF;
+@font-face {
+    font-family: SourceSansPro;
+    src: url(../assets/source-sans-pro_bold.otf);
+    font-weight: 600;
+    font-display: swap;
 }
 
 @font-face {
     font-family: SourceSansPro;
-    src: url(../assets/source-sans-pro_bold.otf);
-    font-weight: 700;
+    src: url(../assets/source-sans-pro_light.otf);
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: SourceSansPro;
+    src: url(../assets/source-sans-pro_italic.otf);
+    font-weight: 400;
+    font-display: swap;
 }
 
 @font-face {
     font-family: SourceSansPro;
     src: url(../assets/source-sans-pro_regular.otf);
-    font-weight: 400;
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: SpinCycleOT;
+    src: url(../assets/spin-cycle-ot.otf);
+    font-display: swap;
 }
 
 /* ----- GENERAL ----- */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: SourceSansPro, sans-serif;
-    color: white;
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    height: 100%;
 }
 
-/* ----- HEADER (Transparent & Absolute) ----- */
+body {
+    background-color: white;
+    font-family: SourceSansPro;
+    color: white;
+    text-align: center;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- HEADER ----- */
+
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
+    width: 800px;
+    margin: 0 auto;
+    height: 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10%; /* Provides breathing room on sides */
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 100;
-    background: transparent;
 }
 
-.logo {
+header div {
+    width: 234px;
+    height: 15px;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
-.nav-links {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-}
-
-.nav-links a {
-    color: white;
+header a {
+    font-size: 12px;
     text-decoration: none;
-    font-weight: 700; /* Requirement: White bold text */
-    font-size: 14px;
-    text-transform: uppercase;
 }
 
-/* ----- HERO SECTION ----- */
-.hero {
-    /* Requirement: Dark background image with radial gradient overlay */
-    background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.8) 100%), 
-                url("../assets/background.png");
-    background-size: cover;
-    background-position: center;
-    min-height: 800px;
+/* ----- MAIN ----- */
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
 }
 
-.hero h1 {
-    font-size: 100px;
-    font-weight: 700;
-    margin-bottom: 30px;
-}
-
-/* Requirement: 3 keywords in horizontal row */
-.keywords {
-    display: flex;
-    gap: 60px;
-    margin-bottom: 40px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.btn-primary {
-    background-color: var(--purple);
+a {
+    font-family: SourceSansPro;
     color: white;
-    padding: 15px 35px;
-    border-radius: 999px; /* Requirement: Purple rounded button */
-    border: none;
-    font-weight: 700;
-    cursor: pointer;
-    text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-}
-
-/* ----- PROS SECTION ----- */
-.pros-section {
-    background-color: white;
-    color: black;
-    padding: 80px 0;
     text-align: center;
 }
 
-.pros-section h2 {
-    font-size: 32px;
-    font-weight: 300;
-    margin-bottom: 60px;
+section {
+    width: 100%;
 }
 
-/* Requirement: "Learn" in purple */
-.purple-text {
-    color: var(--purple);
-    font-weight: 700;
+.hero .title h1 {
+    font-size: 120px;
 }
 
-/* Requirement: 4 circular profile images aligned horizontally */
-.people-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    max-width: var(--container-width);
-    margin: 0 auto;
+.title p {
+    width: 100%;
+    max-width: 250px;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 25px;;
 }
 
-.person-card {
-    flex: 1;
+.title p::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+
+section.hero {
+    background-image: url("../assets/background.png");
+    background-size: 100% auto;
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 75px;
+}
+
+section .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+
+button {
+    background-color: #C271FF;
+    border-radius: 999px;
+    padding: 15px 25px;
+    border: none;
+    color: white;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5);
+}
+
+section .pros {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 75px;
+    margin-top: 150px;
+}
+
+section .pros h2 {
+	font-family: SourceSansPro;
+    font-weight: 300;
+    font-size: 32px;
+}
+
+.purple-word {
+    font-weight: 600;
+    color: #C271FF;
+}
+
+section .people p {
+    font-family: SourceSansPro;
+    font-weight: 300;
+}
+
+section .people {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 125px;
+    width: 100%;
+}
+
+section .people div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 150px;
 }
 
 .round-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%; /* Requirement: Circular images */
-    object-fit: cover;
-    margin-bottom: 20px;
-}
-
-.person-card h3 {
-    font-weight: 700; /* Requirement: Bold names */
-    margin-bottom: 5px;
-}
-
-.person-card p {
-    font-style: italic; /* Requirement: Italic descriptions */
-    font-weight: 400;
-    color: #333;
+    border-radius: 50%;
 }
