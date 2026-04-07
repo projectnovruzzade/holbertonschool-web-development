@@ -9,4 +9,4 @@ The goal of the project is to replicate a School Page with the following design:
 
 
 School Page
-(https://github.com/vagifrasulzade/holbertonschool-web-development/raw/main/css_advanced/assets/school_page.png)
+(https://raw.githubusercontent.com/vagifrasulzade/holbertonschool-web-development/main/css_advanced/assets/school_page.png)
